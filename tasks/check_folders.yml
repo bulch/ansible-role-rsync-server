@@ -1,0 +1,14 @@
+---
+- name: Check project.folder
+  ansible.builtin.stat:
+    path: "{{ item.configs.path }}"
+  register: current_path
+
+- name: Create common project folders
+  ansible.builtin.file:
+    path: "{{ item.configs.path }}"
+    state: directory
+    mode: "0755"
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+  when: current_path.stat.isdir is not defined

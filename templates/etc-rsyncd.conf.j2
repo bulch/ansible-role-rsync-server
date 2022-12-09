@@ -1,0 +1,23 @@
+#jinja2: lstrip_blocks: "True", trim_blocks: "True"
+# {{ ansible_managed }}
+
+[global]
+    timeout = {{ rsync_server_timeout | default(300, true) }}
+    max connections = {{ rsync_server_max_connections | default(2, true) }}
+    log file = /var/log/rsync.log
+    dont compress = *.gz *.tgz *.zip *.z *.Z *.rpm *.deb *.bz2 *.lzo *.lz4 *.xz *.txz *.zstd *.lz *.apk *.cab *.dmg *.rar *.war *.jar
+
+{% for item in rsync_config_manage | default([]) %}
+[{{ item.name }}]
+    path = {{ item.configs.path }}
+    comment = {{ item.configs.comment | default("{{ item.name }} - server rsync") }}
+    auth users = {{ item.secrets.user }}
+    uid = {{ item.configs.uid | default('nobody') }}
+    gid = {{ item.configs.gid | default('nogroup') }}
+    read only = {{ item.configs.readonly | default(true) | ternary('true', 'false' ) }}
+    list = {{ item.configs.list | default(true) | ternary('yes', 'no' ) }}
+    use chroot = {{ item.configs.chroot | default(true) | ternary('true', 'false' ) }}
+    secrets file = {{ item.secrets.filepath | default('/etc/rsyncd.secrets')}}
+    exclude = {{ item.configs.excludes | default(['lost+found', '.*']) | join(' ') }}
+    hosts allow = {{ item.configs.hosts_allow | default(['*']) | join(' ') }}
+{% endfor %}

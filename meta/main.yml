@@ -1,0 +1,22 @@
+---
+galaxy_info:
+  author: bulch
+  description: rsync server
+  company: yksoft
+  role_name: rsync_server
+
+  issue_tracker_url: https://tracker.yandex.ru/DEVOPS
+  license: "license (BSD, MIT)"
+  min_ansible_version: "2.13"
+
+  platforms:
+    - name: Ubuntu
+      versions:
+        - bionic
+        - focal
+        - jammy
+
+  galaxy_tags:
+    - rsync
+
+dependencies: []

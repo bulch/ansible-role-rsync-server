@@ -1,0 +1,80 @@
+---
+# tasks file for rsync_server
+
+- name: "Install packages"
+  become: true
+  ansible.builtin.apt:
+    name: "{{ item.name }}"
+    update_cache: true
+    cache_valid_time: 3600
+    state: "{{ item.state | default('present') }}"
+  loop: "{{ rsync_server_packages }}"
+  notify:
+    - "HANDLER | Restart Rsync"
+
+- name: Check folders
+  ansible.builtin.include_tasks: check_folders.yml
+  loop: "{{ rsync_config_manage }}"
+
+- name: "Manage rsync default config"
+  become: true
+  ansible.builtin.template:
+    src: etc-default-rsync.j2
+    dest: "/etc/default/rsync"
+    owner: "root"
+    group: "root"
+    mode: "0644"
+  notify:
+    - "HANDLER | Restart Rsync"
+
+- name: "Manage user authentication files"
+  become: true
+  ansible.builtin.template:
+    src: etc-rsyncd.secrets.j2
+    dest: "{{ item.secrets.filepath | default('/etc/rsyncd.secrets', true) }}"
+    owner: "{{ item.secrets.owner | default('root') }}"
+    group: "{{ item.secrets.group | default('root') }}"
+    mode: "{{ item.secrets.mode | default('0400') }}"
+  loop: "{{ rsync_config_manage }}"
+  notify:
+    - "HANDLER | Restart Rsync"
+
+- name: "Manage rsyncd.conf"
+  become: true
+  ansible.builtin.template:
+    src: etc-rsyncd.conf.j2
+    dest: "{{ item.configs.filepath | default('/etc/rsyncd.conf', true) }}"
+    owner: "{{ item.configs.owner | default('root') }}"
+    group: "{{ item.configs.group | default('root') }}"
+    mode: "{{ item.configs.mode | default('0644') }}"
+  loop: "{{ rsync_config_manage }}"
+  notify:
+    - "HANDLER | Restart Rsync"
+
+- name: Debug service rsync
+  block:
+  - name: "Service status rsync"
+    become: true
+    ansible.builtin.service:
+      name: "rsync"
+    register: service_status_rsync
+
+  # - name: Print status
+  #   ansible.builtin.debug:
+  #     var: service_status_rsync["status"]
+
+  - name: Print ActiveState
+    ansible.builtin.debug:
+      var: service_status_rsync["status"]["ActiveState"]
+
+  - name: Print Description
+    ansible.builtin.debug:
+      var: service_status_rsync["status"]["Description"]
+  
+  - name: Print ExecStart
+    ansible.builtin.debug:
+      var: service_status_rsync["status"]["ExecStart"]
+  
+  - name: Print ActiveEnterTimestamp
+    ansible.builtin.debug:
+      var: service_status_rsync["status"]["ActiveEnterTimestamp"]

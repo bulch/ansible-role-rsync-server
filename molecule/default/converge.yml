@@ -1,0 +1,30 @@
+---
+- name: Converge
+
+  hosts: all
+
+  pre_tasks:
+    - name: Update apt cache.
+      apt: update_cache=yes cache_valid_time=600
+      when: ansible_os_family == "Debian"
+      changed_when: false
+
+  vars:
+    rsync_config_manage:
+      - name: "default"
+        configs:
+          # readonly: false
+          comment: "Dump folder for rsync"
+          path: "/var/www/rsync_dumps"
+          hosts_allow: ["*"]
+          uid: root
+          gid: root
+        secrets:
+          user: "9D0EeojsHCU"
+          password: "068tg5jLVv4"
+
+  tasks:
+    - name: "Include bulch.rsync_server"
+      include_role:
+        name: "bulch.rsync_server"
+    - debug: msg="{{ inventory_hostname }}"
