@@ -1,7 +1,7 @@
 ---
 galaxy_info:
   author: bulch
-  description: Ansible Role for install and configurate rsync server
+  description: rsync server
   company: yksoft
   role_name: rsync_server
 
@@ -18,5 +18,7 @@ galaxy_info:
 
   galaxy_tags:
     - rsync
+    - server
+    - system
 
 dependencies: []
