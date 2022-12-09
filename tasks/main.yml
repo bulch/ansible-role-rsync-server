@@ -53,28 +53,29 @@
 
 - name: Debug service rsync
   block:
-  - name: "Service status rsync"
-    become: true
-    ansible.builtin.service:
-      name: "rsync"
-    register: service_status_rsync
 
-  # - name: Print status
-  #   ansible.builtin.debug:
-  #     var: service_status_rsync["status"]
+    - name: "Service status rsync"
+      become: true
+      ansible.builtin.service:
+        name: "rsync"
+      register: service_status_rsync
 
-  - name: Print ActiveState
-    ansible.builtin.debug:
-      var: service_status_rsync["status"]["ActiveState"]
+    # - name: Print status
+    #   ansible.builtin.debug:
+    #     var: service_status_rsync["status"]
 
-  - name: Print Description
-    ansible.builtin.debug:
-      var: service_status_rsync["status"]["Description"]
-  
-  - name: Print ExecStart
-    ansible.builtin.debug:
-      var: service_status_rsync["status"]["ExecStart"]
-  
-  - name: Print ActiveEnterTimestamp
-    ansible.builtin.debug:
-      var: service_status_rsync["status"]["ActiveEnterTimestamp"]
+    - name: Print ActiveState
+      ansible.builtin.debug:
+        var: service_status_rsync["status"]["ActiveState"]
+
+    - name: Print Description
+      ansible.builtin.debug:
+        var: service_status_rsync["status"]["Description"]
+
+    - name: Print ExecStart
+      ansible.builtin.debug:
+        var: service_status_rsync["status"]["ExecStart"]
+
+    - name: Print ActiveEnterTimestamp
+      ansible.builtin.debug:
+        var: service_status_rsync["status"]["ActiveEnterTimestamp"]
