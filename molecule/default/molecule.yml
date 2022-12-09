@@ -11,21 +11,18 @@ driver:
   name: docker
 
 platforms:
-  - name: docker-ubuntu2004-ansible
-    image: geerlingguy/docker-ubuntu2004-ansible
+  - name: instance
+    image: "geerlingguy/docker-${MOLECULE_DISTRO:-docker-ubuntu2004}-ansible:latest"
     exposed_ports:
       - 80/tcp
       - 443/tcp
     published_ports:
-      - 0.0.0.0:80:80/tcp
-      - 0.0.0.0:443:443/tcp
-      - 0.0.0.0:222:22/tcp
       - 0.0.0.0:873:873/tcp
     volumes:
-      # - /var/run/docker.sock:/var/run/docker.sock:rw
       - /sys/fs/cgroup:/sys/fs/cgroup:rw
       - /dev/null:/dev/null:rw
-    command: /sbin/init
+    # command: /sbin/init
+    command: ${MOLECULE_DOCKER_COMMAND:-""}
     tmpfs:
       - /run
       - /tmp
@@ -43,7 +40,7 @@ provisioner:
 
   inventory:
     host_vars:
-      docker-ubuntu2004-ansible:
+      instance:
         ansible_user: root
 
 verifier:
