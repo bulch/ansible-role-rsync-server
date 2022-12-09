@@ -1,11 +1,9 @@
 # Ansible Role: Rsync server
 
 
-[![Actions Status](https://github.com/bulch/ansible-role-rsync-server/workflows/CI/badge.svg)](https://github.com/bulch/ansible-role-rsync-server/actions)
+[![Actions Status](https://github.com/bulch/ansible-role-rsync-server/actions/workflows/ci.yml/badge.svg)](https://github.com/bulch/ansible-role-rsync-server/actions) [![Actions Status](https://github.com/bulch/ansible-role-rsync-server/actions/workflows/release.yml/badge.svg)](https://github.com/bulch/ansible-role-rsync-server/actions)
 
-[![Ansible Role](https://img.shields.io/ansible/role/61117?style=for-the-badge)](https://galaxy.ansible.com/bulch/rsync_server/)
-
-[![Ansible Role Downloaded](https://img.shields.io/ansible/role/d/61117?style=for-the-badge)](https://galaxy.ansible.com/bulch/rsync_server/)
+[![Ansible Role](https://img.shields.io/ansible/role/61117?style=for-the-badge)](https://galaxy.ansible.com/bulch/rsync_server/) [![Ansible Role Downloaded](https://img.shields.io/ansible/role/d/61117?style=for-the-badge)](https://galaxy.ansible.com/bulch/rsync_server/)
 
 Setup rsync as a server.
 
