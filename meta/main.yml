@@ -5,7 +5,7 @@ galaxy_info:
   company: yksoft
   role_name: rsync_server
 
-  issue_tracker_url: https://tracker.yandex.ru/DEVOPS
+  issue_tracker_url: https://github.com/bulch/ansible-role-rsync-server/issues
   license: "license (BSD, MIT)"
   min_ansible_version: "2.13"
 
