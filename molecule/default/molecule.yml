@@ -38,9 +38,8 @@ platforms:
 provisioner:
 
   name: ansible
-  config_options:
-    defaults:
-      vault_password_file: ${MOLECULE_PROJECT_DIRECTORY}/../.vault_password
+  playbooks:
+    converge: ${MOLECULE_PLAYBOOK:-converge.yml}
 
   inventory:
     host_vars:
