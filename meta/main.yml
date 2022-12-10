@@ -1,7 +1,7 @@
 ---
 galaxy_info:
   author: bulch
-  description: rsync server
+  description: Setup rsync as a server.
   company: yksoft
   role_name: rsync_server
 
