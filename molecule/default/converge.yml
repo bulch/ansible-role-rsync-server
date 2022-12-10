@@ -5,20 +5,19 @@
 
   pre_tasks:
     - name: Update apt cache.
-      apt: update_cache=yes cache_valid_time=600
+      apt:
+        update_cache: true
+        cache_valid_time: 600
       when: ansible_os_family == "Debian"
       changed_when: false
 
   vars:
     rsync_config_manage:
-      - name: "default"
+      - name: "example-storage"
         configs:
-          # readonly: false
-          comment: "Dump folder for rsync"
-          path: "/var/www/rsync_dumps"
+          comment: "Example storage"
+          path: "/var/www/example-storage"
           hosts_allow: ["*"]
-          uid: root
-          gid: root
         secrets:
           user: "9D0EeojsHCU"
           password: "068tg5jLVv4"
