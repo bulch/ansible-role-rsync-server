@@ -19,14 +19,14 @@ RSYNC_ENABLE=true
 #          using a remote shell. When using a different file for
 #          rsync you might want to symlink /etc/rsyncd.conf to
 #          that file.
-# RSYNC_CONFIG_FILE=
+RSYNC_CONFIG_FILE="{{ rsync_config_file | default('/etc/rsyncd.conf') }}"
 
 # what extra options to give rsync --daemon?
 #  that excludes the --daemon; that's always done in the init.d script
 #  Possibilities are:
 #   --address=123.45.67.89              (bind to a specific IP address)
 #   --port=8730                         (bind to specified port; default 873)
-RSYNC_OPTS=''
+RSYNC_OPTS="--port={{ rsync_config_port | default('873') }}"
 
 # run rsyncd at a nice level?
 #  the rsync daemon can impact performance due to much I/O and CPU usage,

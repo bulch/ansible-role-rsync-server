@@ -2,8 +2,8 @@
 # {{ ansible_managed }}
 
 [global]
-    timeout = {{ rsync_server_timeout | default(300, true) }}
-    max connections = {{ rsync_server_max_connections | default(2, true) }}
+    timeout = {{ rsync_server_timeout | default(300) }}
+    max connections = {{ rsync_server_max_connections | default(2) }}
     log file = /var/log/rsync.log
     dont compress = *.gz *.tgz *.zip *.z *.Z *.rpm *.deb *.bz2 *.lzo *.lz4 *.xz *.txz *.zstd *.lz *.apk *.cab *.dmg *.rar *.war *.jar
 

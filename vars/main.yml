@@ -1,4 +1,5 @@
 ---
 # vars file for rsync_server
+
 rsync_server_packages:
   - name: 'rsync'
