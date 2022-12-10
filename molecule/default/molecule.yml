@@ -12,7 +12,7 @@ driver:
 
 platforms:
   - name: instance
-    image: "geerlingguy/docker-${MOLECULE_DISTRO:-docker-ubuntu2004}-ansible:latest"
+    image: "geerlingguy/docker-${MOLECULE_DISTRO:-ubuntu2204}-ansible:latest"
     exposed_ports:
       - 80/tcp
       - 443/tcp
