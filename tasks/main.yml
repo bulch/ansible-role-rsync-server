@@ -43,11 +43,10 @@
   become: true
   ansible.builtin.template:
     src: etc-rsyncd.conf.j2
-    dest: "{{ item.configs.filepath | default('/etc/rsyncd.conf', true) }}"
-    owner: "{{ item.configs.owner | default('root') }}"
-    group: "{{ item.configs.group | default('root') }}"
-    mode: "{{ item.configs.mode | default('0644') }}"
-  loop: "{{ rsync_config_manage }}"
+    dest: "{{ rsync_config_file | default('/etc/rsyncd.conf', true) }}"
+    owner: "root"
+    group: "root"
+    mode: "644"
   notify:
     - "HANDLER | Restart Rsync"
 
