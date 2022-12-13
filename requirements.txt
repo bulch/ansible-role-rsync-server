@@ -4,3 +4,6 @@ ansible-core
 ansible-lint
 docker
 ansible-vault
+pytest-testinfra
+pytest
+flake8

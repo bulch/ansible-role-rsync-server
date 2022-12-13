@@ -46,7 +46,7 @@
     dest: "{{ rsync_config_file | default('/etc/rsyncd.conf', true) }}"
     owner: "root"
     group: "root"
-    mode: "644"
+    mode: "0440"
   notify:
     - "HANDLER | Restart Rsync"
 
