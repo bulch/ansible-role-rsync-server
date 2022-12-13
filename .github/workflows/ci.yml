@@ -61,7 +61,7 @@ jobs:
           python-version: '3.x'
 
       - name: Install test dependencies.
-        run: pip3 install ansible molecule[docker] docker ansible-lint yamllint
+        run: pip3 install -r requirements.txt
 
       - name: Run Molecule tests.
         run: echo "qwerty" > .vault_password && molecule test --all
