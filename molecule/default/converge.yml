@@ -4,8 +4,8 @@
   hosts: all
 
   pre_tasks:
-    - name: Update apt cache.
-      apt:
+    - name: Update apt cache
+      ansible.builtin.apt:
         update_cache: true
         cache_valid_time: 600
       when: ansible_os_family == "Debian"
@@ -23,7 +23,10 @@
           password: "068tg5jLVv4"
 
   tasks:
-    - name: "Include bulch.rsync_server"
-      include_role:
+    - name: Include bulch.rsync_server
+      ansible.legacy.include_role:
         name: "bulch.rsync_server"
-    - debug: msg="{{ inventory_hostname }}"
+
+    - name: Debug inventory_hostname
+      ansible.legacy.debug:
+        msg: "{{ inventory_hostname }}"
