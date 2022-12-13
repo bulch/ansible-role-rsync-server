@@ -64,7 +64,7 @@ jobs:
         run: pip3 install ansible molecule[docker] docker ansible-lint yamllint
 
       - name: Run Molecule tests.
-        run: echo "qwerty" > .vault_password && molecule test
+        run: echo "qwerty" > .vault_password && molecule test --all
         env:
           PY_COLORS: '1'
           ANSIBLE_FORCE_COLOR: '1'
