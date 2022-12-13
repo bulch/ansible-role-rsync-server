@@ -12,10 +12,13 @@ converge:
 	molecule converge
 
 test:
-	molecule test --all
+	molecule --debug test --all
 
 destroy:
 	molecule destroy --all
+
+verify:
+	molecule verify
 
 login:
 	molecule login
