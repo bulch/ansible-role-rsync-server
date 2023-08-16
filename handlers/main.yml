@@ -1,7 +1,7 @@
 ---
 # handlers file for rsync_server
-- name: 'HANDLER | Restart Rsync'
+- name: Restart rsync server
   become: true
   ansible.builtin.service:
-    name: "rsync"
-    state: 'restarted'
+    name: rsync
+    state: restarted

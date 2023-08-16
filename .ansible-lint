@@ -1,4 +1,7 @@
+---
 skip_list:
   - 'yaml'
   - 'risky-shell-pipe'
   - 'role-name'
+use_default_rules: true
+verbosity: 1
