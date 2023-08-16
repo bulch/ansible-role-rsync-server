@@ -1,5 +1,7 @@
 ansible
+molecule
 molecule[docker]
+molecule-plugins[docker]
 ansible-core
 ansible-lint
 docker
