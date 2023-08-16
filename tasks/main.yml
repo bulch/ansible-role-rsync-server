@@ -1,7 +1,7 @@
 ---
 # tasks file for rsync_server
 
-- name: "Install packages"
+- name: Install packages
   become: true
   ansible.builtin.apt:
     name: "{{ item.name }}"
@@ -10,24 +10,24 @@
     state: "{{ item.state | default('present') }}"
   loop: "{{ rsync_server_packages }}"
   notify:
-    - "HANDLER | Restart Rsync"
+    - Restart rsync server
 
 - name: Check folders
   ansible.builtin.include_tasks: check_folders.yml
   loop: "{{ rsync_config_manage }}"
 
-- name: "Manage rsync default config"
+- name: Manage rsync default config
   become: true
   ansible.builtin.template:
     src: etc-default-rsync.j2
     dest: "/etc/default/rsync"
-    owner: "root"
-    group: "root"
+    owner: root
+    group: root
     mode: "0644"
   notify:
-    - "HANDLER | Restart Rsync"
+    - Restart rsync server
 
-- name: "Manage user authentication files"
+- name: Manage user authentication files
   become: true
   ansible.builtin.template:
     src: etc-rsyncd.secrets.j2
@@ -37,26 +37,26 @@
     mode: "{{ item.secrets.mode | default('0400') }}"
   loop: "{{ rsync_config_manage }}"
   notify:
-    - "HANDLER | Restart Rsync"
+    - Restart rsync server
 
-- name: "Manage rsyncd.conf"
+- name: Manage rsyncd.conf
   become: true
   ansible.builtin.template:
     src: etc-rsyncd.conf.j2
     dest: "{{ rsync_config_file | default('/etc/rsyncd.conf', true) }}"
-    owner: "root"
-    group: "root"
+    owner: root
+    group: root
     mode: "0440"
   notify:
-    - "HANDLER | Restart Rsync"
+    - Restart rsync server
 
 - name: Debug service rsync
   block:
-
-    - name: "Service status rsync"
+    - name: Service status rsync
       become: true
       ansible.builtin.service:
-        name: "rsync"
+        name: rsync
+        enabled: true
       register: service_status_rsync
 
     # - name: Print status

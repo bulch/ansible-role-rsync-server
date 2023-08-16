@@ -30,7 +30,7 @@ rsync_config_manage: []
 
 ```
 ---
-- name: Example Playbook 
+- name: Example Playbook
   hosts: all
   strategy: debug
   become: yes
@@ -55,7 +55,7 @@ rsync_config_manage: []
         password: "{{ my_secter_rsync_password }}"
 ```
 
-Rsync list for test 
+Rsync list for test
 
 ```bash
 RSYNC_PASSWORD=068tg5jLVv4 rsync --list-only rsync://9D0EeojsHCU@localhost:873/example-storage

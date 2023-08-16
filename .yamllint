@@ -5,8 +5,21 @@ rules:
   line-length:
     max: 200
     level: warning
+  comments:
+    # prettier compatibility
+    min-spaces-from-content: 1
+  document-start:
+    present: true
+  indentation:
+    level: error
+    indent-sequences: consistent
+  octal-values:
+    forbid-implicit-octal: true
+    forbid-explicit-octal: true
 
 ignore: |
   .github/stale.yml
   .travis.yml
   venv
+  .tox
+  .cache/
