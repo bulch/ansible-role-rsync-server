@@ -39,15 +39,3 @@ rsync-list:
 
 rsync-copy:
 	RSYNC_PASSWORD=${RSYNC_PASSWORD} rsync -rca README.md rsync://${RSYNC_LOGIN}@localhost:${RSYNC_PORT}/${RSYNC_STORAGE}
-
-########
-# Develop
-########
-
-lint: yamllint ansible-lint
-
-yamllint:
-	yamllint .
-
-ansible-lint:
-	ansible-lint .
