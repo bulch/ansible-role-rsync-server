@@ -41,7 +41,7 @@ psutil==5.9.4
 pycodestyle==2.10.0
 pycparser==2.21
 pyflakes==3.0.1
-Pygments==2.13.0
+Pygments==2.15.0
 pyrsistent==0.19.2
 pytest==7.2.0
 pytest-testinfra==7.0.0
