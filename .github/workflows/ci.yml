@@ -62,6 +62,11 @@ jobs:
           python-version: '3.x'
 
       - name: Hotfix for https://github.com/aws-actions/setup-sam/issues/82
+        uses: aws-actions/setup-sam@v2
+        with:
+          use-installer: true
+      
+      - name: test
         run: |
           pip3 install "cython<3.0.0"
           pip3 install --no-build-isolation pyyaml==5.4.1
