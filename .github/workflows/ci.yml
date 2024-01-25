@@ -61,6 +61,11 @@ jobs:
         with:
           python-version: '3.x'
 
+      - name: Hotfix for https://github.com/aws-actions/setup-sam/issues/82
+        run: |
+          $(dirname $(readlink $(which sam)))/pip install "cython<3.0.0"
+          $(dirname $(readlink $(which sam)))/pip install --no-build-isolation pyyaml==5.4.1
+
       - name: Install test dependencies.
         run: pip3 install -r requirements.txt
 
