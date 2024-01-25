@@ -3,5 +3,7 @@ ansible-compat==2.2.7
 ansible-core==2.14.1
 ansible-lint==6.9.1
 ansible-vault==2.1.0
+molecule==4.0.4
+molecule-docker==2.1.0
 yamllint==1.28.0
 pre-commit==3.3.3
