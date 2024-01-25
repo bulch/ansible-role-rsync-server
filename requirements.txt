@@ -1,7 +1,7 @@
 ansible==7.1.0
-ansible-compat==4.1.5
+ansible-compat==2.2.7
 ansible-core==2.14.1
-ansible-lint==6.17.2
+ansible-lint==6.9.1
 ansible-vault==2.1.0
 arrow==1.2.3
 attrs==22.1.0
@@ -55,11 +55,11 @@ ruamel.yaml==0.17.21
 ruamel.yaml.clib==0.2.7
 selinux==0.2.1
 six==1.16.0
-subprocess-tee==0.4.1
+subprocess-tee==0.4.0
 text-unidecode==1.3
 tomli==2.0.1
 urllib3==1.26.13
 wcmatch==8.4.1
 websocket-client==1.4.2
-yamllint==1.30.0
+yamllint==1.28.0
 pre-commit==3.3.3
