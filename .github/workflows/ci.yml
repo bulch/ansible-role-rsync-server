@@ -61,7 +61,7 @@ jobs:
         with:
           python-version: '3.x'
 
-      - name: Hotfix for https://github.com/aws-actions/setup-sam/issues/82
+      - name: Hotfix
         uses: aws-actions/setup-sam@v2
         with:
           use-installer: true
