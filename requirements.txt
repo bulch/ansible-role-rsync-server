@@ -23,7 +23,7 @@ enrich==1.2.7
 exceptiongroup==1.0.4
 filelock==3.8.2
 flake8==6.0.0
-idna==3.4
+idna==3.7
 iniconfig==1.1.1
 Jinja2==3.1.2
 jinja2-time==0.2.0
