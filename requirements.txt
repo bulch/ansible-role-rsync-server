@@ -34,4 +34,4 @@ molecule==4.0.4
 molecule-docker==2.1.0
 yamllint==1.28.0
 pre-commit==3.3.3
-pyyaml = { version = "!=6.0.0,!=5.4.0,!=5.4.1" }
+PyYAML==6.0.1
