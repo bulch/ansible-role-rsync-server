@@ -1,8 +1,9 @@
+---
 name: Release Drafter
 
-on:
+'on':
   workflow_run:
-    workflows: 
+    workflows:
       - CI
     types:
       - completed
@@ -39,12 +40,12 @@ jobs:
       id-token: write
       contents: write
       pull-requests: write
-    steps:      
+    steps:
       - name: 🚀 Create Pre-Release version
         uses: release-drafter/release-drafter@v6
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      
+
       - name: send telegram message on push
         uses: appleboy/telegram-action@master
         with:

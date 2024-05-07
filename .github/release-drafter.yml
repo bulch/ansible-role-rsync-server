@@ -1,3 +1,4 @@
+---
 name-template: 'v$RESOLVED_VERSION'
 tag-template: 'v$RESOLVED_VERSION'
 template: |
@@ -11,7 +12,7 @@ categories:
   - title: 'Breaking'
     label: 'type: breaking'
   - title: '🚀 Features'
-    labels: 
+    labels:
       - 'feature'
       - 'feat'
       - 'feat:'
