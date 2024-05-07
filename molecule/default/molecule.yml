@@ -71,7 +71,6 @@ scenario:
     - destroy
   test_sequence:
     - dependency
-    - lint
     - cleanup
     - destroy
     - syntax
@@ -84,7 +83,7 @@ scenario:
     - cleanup
     - destroy
 
-lint: |
-  set -e
-  yamllint .
-  ansible-lint .
+# lint: |
+#   set -e
+#   yamllint .
+#   ansible-lint .

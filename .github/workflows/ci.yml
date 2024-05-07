@@ -1,6 +1,7 @@
 ---
 name: CI
-'on':
+
+on:
   pull_request:
   push:
     branches:
@@ -63,9 +64,12 @@ jobs:
 
       - name: Install test dependencies.
         run: pip3 install -r requirements.txt
+      
+      - name: Createt vault
+        run: echo "qwerty" > .vault_password
 
       - name: Run Molecule tests.
-        run: echo "qwerty" > .vault_password && molecule test --all
+        run: molecule test --all
         env:
           PY_COLORS: '1'
           ANSIBLE_FORCE_COLOR: '1'
