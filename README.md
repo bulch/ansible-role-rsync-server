@@ -11,6 +11,12 @@ Setup rsync as a server.
 
 None.
 
+## Role install
+
+```
+ansible-galaxy role install bulch.rsync_server
+```
+
 ## Role Variables
 
 Default tvaribles
@@ -18,10 +24,8 @@ Default tvaribles
 ```
 rsync_config_file: "/etc/rsyncd.conf"
 rsync_config_port: 873
-
 rsync_server_timeout: 300
 rsync_server_max_connections: 2
-
 rsync_config_manage: []
 ```
 
