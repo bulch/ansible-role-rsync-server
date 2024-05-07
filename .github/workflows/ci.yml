@@ -1,7 +1,7 @@
 ---
 name: CI
 
-on:
+'on':
   pull_request:
   push:
     branches:
@@ -64,7 +64,7 @@ jobs:
 
       - name: Install test dependencies.
         run: pip3 install -r requirements.txt
-      
+
       - name: Createt vault
         run: echo "qwerty" > .vault_password
 
