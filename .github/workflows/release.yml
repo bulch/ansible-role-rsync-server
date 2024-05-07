@@ -8,9 +8,6 @@
 name: Release
 
 'on':
-  push:
-    tags:
-      - '*'
   workflow_dispatch:
 
 defaults:
