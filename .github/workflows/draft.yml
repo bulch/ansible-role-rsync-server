@@ -9,7 +9,6 @@ name: Release Drafter
       - completed
     branches:
       - master
-      - develop
 
 permissions:
   contents: read
