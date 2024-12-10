@@ -1,6 +1,5 @@
 ---
 # defaults file for rsync_server
-
 rsync_config_file: "/etc/rsyncd.conf"
 rsync_config_port: 873
 rsync_server_timeout: 300

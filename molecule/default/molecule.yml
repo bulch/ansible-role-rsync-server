@@ -5,85 +5,60 @@ dependency:
     ignore-certs: true
     ignore-errors: true
     role-file: requirements.yml
-    requirements-file: collections.yml
+    requirements-file: requirements.yml
 
 driver:
   name: docker
 
 platforms:
-  - name: instance
-    image: "geerlingguy/docker-${MOLECULE_DISTRO:-ubuntu2204}-ansible:latest"
+  - name: molecule-ubuntu
+    # image: ubuntu:18.04
+    image: "geerlingguy/docker-${MOLECULE_DISTRO:-ubuntu2404}-ansible:latest"
+    published_ports:
+      - 0.0.0.0:873:873/tcp
     exposed_ports:
       - 80/tcp
       - 443/tcp
-    published_ports:
-      - 0.0.0.0:873:873/tcp
-    volumes:
-      - /sys/fs/cgroup:/sys/fs/cgroup:rw
-      - /dev/null:/dev/null:rw
-    # command: /sbin/init
-    command: ${MOLECULE_DOCKER_COMMAND:-""}
-    tmpfs:
-      - /run
-      - /tmp
-    capabilities:
-      - SYS_ADMIN
-    cgroupns_mode: host
-    privileged: true
-    pre_build_image: true
+      - 873/tcp
+
+# platforms:
+#   - name: instance
+#     image: "geerlingguy/docker-${MOLECULE_DISTRO:-ubuntu2204}-ansible:latest"
+#     exposed_ports:
+#       - 80/tcp
+#       - 443/tcp
+#     published_ports:
+#       - 0.0.0.0:873:873/tcp
+#     volumes:
+#       - /sys/fs/cgroup:/sys/fs/cgroup:rw
+#       - /dev/null:/dev/null:rw
+#     # command: /sbin/init
+#     command: ${MOLECULE_DOCKER_COMMAND:-""}
+#     tmpfs:
+#       - /run
+#       - /tmp
+#     capabilities:
+#       - SYS_ADMIN
+#     cgroupns_mode: host
+#     privileged: true
+#     pre_build_image: true
 
 provisioner:
-
   name: ansible
   playbooks:
     converge: ${MOLECULE_PLAYBOOK:-converge.yml}
 
   inventory:
     host_vars:
-      instance:
+      molecule-ubuntu:
         ansible_user: root
+
 
 verifier:
   name: ansible
 
-scenario:
-  create_sequence:
-    - dependency
-    - create
-    - prepare
-  check_sequence:
-    - dependency
-    - cleanup
-    - destroy
-    - create
-    - prepare
-    - converge
-    - check
-    - destroy
-  converge_sequence:
-    - dependency
-    - create
-    - prepare
-    - converge
-  destroy_sequence:
-    - dependency
-    - cleanup
-    - destroy
-  test_sequence:
-    - dependency
-    - cleanup
-    - destroy
-    - syntax
-    - create
-    - prepare
-    - converge
-    - idempotence
-    - side_effect
-    - verify
-    - cleanup
-    - destroy
 
-# lint: |
-#   set -e
-#   yamllint .
-#   ansible-lint .
+lint: |
+  set -e
+  yamllint .
+  ansible-lint .

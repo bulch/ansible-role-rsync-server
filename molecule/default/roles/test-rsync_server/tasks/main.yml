@@ -38,15 +38,27 @@
       - secret_rsync.stat.pw_name == 'root'
       - secret_rsync.stat.gr_name == 'root'
 
-- name: Test rsync service status
-  ansible.builtin.service:
-    name: "rsync"
-  register: service_status_rsync
+# - name: Test rsync service status
+#   ansible.builtin.service:
+#     name: "rsync"
+#   register: service_status_rsync
+- name: Populate service facts
+  ansible.builtin.service_facts:
+
+- name: Print service facts
+  ansible.builtin.debug:
+    var: ansible_facts.services
+
+- name: Show names of existing systemd services
+  ansible.builtin.debug: msg={{ existing_systemd_services | map(attribute='name') }}
+  vars:
+    known_systemd_services: "{{ ansible_facts['services'].values() | selectattr('source', 'equalto', 'systemd') }}"
+    existing_systemd_services: "{{ known_systemd_services | rejectattr('status', 'equalto', 'not-found') }}"
 
 - name: Test assert rsync service status
   ansible.builtin.assert:
     that:
-      - service_status_rsync['status']['ActiveState'] == 'active'
+      - ansible_facts.services.rsync['state'] == 'running'
 
 - name: Gather facts on listening ports
   community.general.listen_ports_facts:
