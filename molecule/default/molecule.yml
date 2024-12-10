@@ -13,7 +13,7 @@ driver:
 platforms:
   - name: molecule-ubuntu
     # image: ubuntu:18.04
-    image: "geerlingguy/docker-${MOLECULE_DISTRO:-ubuntu2204}-ansible:latest"
+    image: "geerlingguy/docker-${MOLECULE_DISTRO:-ubuntu2404}-ansible:latest"
     published_ports:
       - 0.0.0.0:873:873/tcp
     exposed_ports:
