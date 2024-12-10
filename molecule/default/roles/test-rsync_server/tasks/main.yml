@@ -49,11 +49,11 @@
   ansible.builtin.debug:
     var: ansible_facts.services
 
-- name: Show names of existing systemd services
-  ansible.builtin.debug: msg={{ existing_systemd_services | map(attribute='name') }}
-  vars:
-    known_systemd_services: "{{ ansible_facts['services'].values() | selectattr('source', 'equalto', 'systemd') }}"
-    existing_systemd_services: "{{ known_systemd_services | rejectattr('status', 'equalto', 'not-found') }}"
+# - name: Show names of existing systemd services
+#   ansible.builtin.debug: msg={{ existing_systemd_services | map(attribute='name') }}
+#   vars:
+#     known_systemd_services: "{{ ansible_facts['services'].values() | selectattr('source', 'equalto', 'systemd') }}"
+#     existing_systemd_services: "{{ known_systemd_services | rejectattr('status', 'equalto', 'not-found') }}"
 
 - name: Test assert rsync service status
   ansible.builtin.assert:
