@@ -19,7 +19,7 @@ ansible-galaxy role install bulch.rsync_server
 
 ## Role Variables
 
-Default tvaribles
+Default varibles
 
 ```
 rsync_config_file: "/etc/rsyncd.conf"
