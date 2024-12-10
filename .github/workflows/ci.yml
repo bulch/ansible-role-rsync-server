@@ -36,8 +36,8 @@ jobs:
       - name: Install molecule deps
         run: |
           ansible-galaxy install -r molecule/default/requirements.yml
-      
-      - name: Install for role
+
+      - name: Install root deps
         run: |
           ansible-galaxy install -r requirements.yml
 
