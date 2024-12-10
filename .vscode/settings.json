@@ -1,0 +1,3 @@
+{
+    "ansible.python.interpreterPath": "venv/bin/python"
+}
