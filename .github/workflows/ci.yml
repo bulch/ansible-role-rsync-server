@@ -35,11 +35,11 @@ jobs:
 
       - name: Lint code yamllint.
         run: |
-          yamllint .
+          yamllint -c=.yamllint .
 
       - name: Lint code ansible-lint.
         run: |
-          ansible-lint .
+          ansible-lint
 
   molecule:
     name: Molecule
