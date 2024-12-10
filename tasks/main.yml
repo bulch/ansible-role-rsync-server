@@ -1,14 +1,10 @@
 ---
 # tasks file for rsync_server
 
-- name: Install packages
-  become: true
-  ansible.builtin.apt:
-    name: "{{ item.name }}"
-    update_cache: true
-    cache_valid_time: 3600
-    state: "{{ item.state | default('present') }}"
-  loop: "{{ rsync_server_packages }}"
+- name: Install required packages
+  ansible.builtin.package:
+    name: "{{ rsync_packages }}"
+    state: present
   notify:
     - Restart rsync server
 
