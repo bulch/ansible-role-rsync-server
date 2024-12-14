@@ -55,6 +55,10 @@ jobs:
     strategy:
       matrix:
         distro:
+          - rockylinux9
+          - debian12
+          - debian11
+          - fedora40
           - ubuntu2404
           - ubuntu2204
           - ubuntu2004
