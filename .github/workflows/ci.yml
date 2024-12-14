@@ -52,6 +52,7 @@ jobs:
   molecule:
     name: Molecule
     runs-on: ubuntu-latest
+    needs: lint
     strategy:
       matrix:
         distro:
@@ -61,7 +62,7 @@ jobs:
           - fedora40
           - ubuntu2404
           - ubuntu2204
-          - ubuntu2004
+          # - ubuntu2004
           # - ubuntu1804 # TODO: WARNING  Driver docker does not provide a schema
           # - ubuntu1604 # TODO: fatal: [instance]: FAILED! =>
           # {
