@@ -10,26 +10,15 @@ galaxy_info:
   min_ansible_version: "2.13"
 
   platforms:
-    - name: Fedora
-      versions:
-        - all
     - name: Debian
       versions:
         - buster
         - bullseye
-        - bookworm
     - name: Ubuntu
       versions:
         - bionic
         - focal
         - jammy
-        - noble
-    - name: Alpine
-      version:
-        - all
-    - name: ArchLinux
-      versions:
-        - all
 
   galaxy_tags:
     - rsync
