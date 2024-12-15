@@ -12,9 +12,8 @@ galaxy_info:
   platforms:
     - name: Ubuntu
       versions:
-        - noble
+        - bionic
         - focal
-        - jammy
 
   galaxy_tags:
     - rsync

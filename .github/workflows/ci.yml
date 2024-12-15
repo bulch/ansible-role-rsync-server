@@ -7,8 +7,8 @@ name: CI
     branches:
       - master
       - develop
-  # schedule:
-  #   - cron: "0 7 * * 0"
+  schedule:
+    - cron: "0 7 * * 0"
 
 defaults:
   run:
@@ -51,6 +51,7 @@ jobs:
 
   molecule:
     name: Molecule
+    needs: lint
     runs-on: ubuntu-latest
     strategy:
       matrix:
