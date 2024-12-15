@@ -59,25 +59,6 @@ jobs:
           - ubuntu2404
           - ubuntu2204
           - ubuntu2004
-          # - ubuntu1804 # TODO: WARNING  Driver docker does not provide a schema
-          # - ubuntu1604 # TODO: fatal: [instance]: FAILED! =>
-          # {
-          #   "ansible_facts": {},
-          #   "changed": false,
-          #   "failed_modules": {
-          #     "ansible.legacy.setup": {
-          #       "ansible_facts": {
-          #         "discovered_interpreter_python": "/usr/bin/python3"
-          #       },
-          #     "failed": true,
-          #     "msg": "ansible-core requires a minimum of Python2 version 2.7 or Python3 version 3.6. Current version: 3.5.2 (default, Jan 26 2021, 13:30:48) [GCC 5.4.0 20160609]"
-          #     }
-          #   },
-          #   "msg": "The following modules failed to execute: ansible.legacy.setup\n"
-          # }
-          # - ubuntu1404 # TODO: ansible-core requires a minimum of Python2 version 2.7 or Python3 version 3.6. Current version: 3.4.3 (default, Nov 28 2017, 16:41:13) [GCC 4.8.4]
-          # - ubuntu1204 # DEPRECATED https://hub.docker.com/r/geerlingguy/docker-ubuntu1204-ansible
-
     steps:
       - name: Check out the codebase.
         uses: actions/checkout@v4.1.6

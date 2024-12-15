@@ -3,4 +3,4 @@
   hosts: molecule-ubuntu
   remote_user: root
   roles:
-    - bulch.rsync_server
+    - rsync_server
