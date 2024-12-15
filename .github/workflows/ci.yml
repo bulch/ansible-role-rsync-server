@@ -7,8 +7,8 @@ name: CI
     branches:
       - master
       - develop
-  # schedule:
-  #   - cron: "0 7 * * 0"
+  schedule:
+    - cron: "0 7 * * 0"
 
 defaults:
   run:
@@ -51,14 +51,14 @@ jobs:
 
   molecule:
     name: Molecule
-    runs-on: ubuntu-latest
     needs: lint
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         distro:
           - ubuntu2404
           - ubuntu2204
-          # - ubuntu2004
+          - ubuntu2004
           # - ubuntu1804 # TODO: WARNING  Driver docker does not provide a schema
           # - ubuntu1604 # TODO: fatal: [instance]: FAILED! =>
           # {
