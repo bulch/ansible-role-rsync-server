@@ -48,7 +48,7 @@ jobs:
       - name: Run ansible-lint
         run: |
           exit_code=0
-          expected_exit_code=128
+          expected_exit_code=0
           ansible-lint || exit_code=$?
           if [ "$exit_code" != "$expected_exit_code" ]; then echo "Command failed: got '$exit_code', expected '$expected_exit_code'"; exit 1; fi
 
