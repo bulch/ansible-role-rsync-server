@@ -1,7 +1,7 @@
 ---
 - name: Test retrieve information from path
   ansible.builtin.stat:
-    path: "{{ path_default_config_rsync }}"
+    path: "{{ testrsync_server_path_default_config_rsync }}"
   register: default_config
 
 - name: Test assert that file rsync config is created correctly
@@ -14,7 +14,7 @@
 
 - name: Test retrieve information from path secret_rsync config
   ansible.builtin.stat:
-    path: "{{ path_secret_rsync }}"
+    path: "{{ testrsync_server_path_secret_rsync }}"
   register: secret_rsync
 
 - name: Test assert that file secret_rsync is created correctly
@@ -27,7 +27,7 @@
 
 - name: Test rsync_config retrieve information from path
   ansible.builtin.stat:
-    path: "{{ path_rsync_config }}"
+    path: "{{ testrsync_server_path_rsync_config }}"
   register: secret_rsync
 
 - name: Test assert that file rsync_config is created correctly
