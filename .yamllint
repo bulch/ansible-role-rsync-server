@@ -5,6 +5,7 @@ rules:
   line-length:
     max: 200
     level: warning
+  comments-indentation: false
   comments:
     # prettier compatibility
     min-spaces-from-content: 1
@@ -16,6 +17,8 @@ rules:
   octal-values:
     forbid-implicit-octal: true
     forbid-explicit-octal: true
+  braces:
+    max-spaces-inside: 1
 
 ignore: |
   .github/stale.yml
