@@ -1,0 +1,2 @@
+ansible-role-rsync-server/molecule/default/create.yml syntax-check[unknown-module]
+ansible-role-rsync-server/tests/roles/testrsync_server/tasks/main.yml syntax-check[unknown-module]
