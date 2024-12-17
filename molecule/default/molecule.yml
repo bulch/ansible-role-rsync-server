@@ -34,7 +34,7 @@ provisioner:
 verifier:
   name: ansible
   env:
-    ANSIBLE_ROLES_PATH: "../../roles"
+    ANSIBLE_ROLES_PATH: "../../tests/roles"
 
 
 lint: |
