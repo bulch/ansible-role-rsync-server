@@ -19,7 +19,6 @@ rules:
 
 ignore: |
   .github/stale.yml
-  .travis.yml
   venv
   .tox
   .cache/

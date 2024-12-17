@@ -3,4 +3,4 @@
   hosts: molecule-ubuntu
   remote_user: root
   roles:
-    - rsync_server
+    - test-rsync_server
