@@ -1,4 +1,0 @@
----
-path_default_config_rsync: "/etc/default/rsync"
-path_secret_rsync: "/etc/rsyncd.secrets"
-path_rsync_config: "/etc/rsyncd.conf"
