@@ -55,7 +55,7 @@ jobs:
         with:
           args: ""
           setup_python: "true"
-          working_directory: "github.workspace"
+          working_directory: "${{ github.workspace }}"
           requirements_file: ""
 
   molecule:
