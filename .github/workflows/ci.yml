@@ -55,8 +55,8 @@ jobs:
         with:
           args: ""
           setup_python: "true"
-          working_directory: "${{ github.workspace }}"
-          requirements_file: ""
+          working_directory: "/home/runner/work/ansible-role-rsync-server"
+          requirements_file: "requirements.yml"
 
   molecule:
     name: Molecule
