@@ -51,12 +51,8 @@ jobs:
 
       - name: Run ansible-lint
         uses: ansible/ansible-lint@main
-        # optional (see below):
         with:
-          args: ""
           setup_python: "true"
-          working_directory: ""
-          requirements_file: ""
 
   molecule:
     name: Molecule
