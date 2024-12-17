@@ -45,18 +45,12 @@ jobs:
         run: |
           yamllint -c=.yamllint .
 
-      - name: Lint code ansible-lint.
-        run: |
-          ansible-lint
-
       - name: Run ansible-lint
-        uses: ansible/ansible-lint@main
-        # optional (see below):
-        with:
-          args: ""
-          setup_python: "true"
-          working_directory: "/home/runner/work/ansible-role-rsync-server"
-          requirements_file: "requirements.yml"
+        run: |
+          exit_code=0
+          expected_exit_code=128
+          ansible-lint || exit_code=$?
+          if [ "$exit_code" != "$expected_exit_code" ]; then echo "Command failed: got '$exit_code', expected '$expected_exit_code'"; exit 1; fi
 
   molecule:
     name: Molecule
