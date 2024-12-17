@@ -1,0 +1,29 @@
+---
+# This workflow requires a GALAXY_API_KEY secret present in the GitHub
+# repository or organization.
+#
+# See: https://github.com/marketplace/actions/publish-ansible-role-to-galaxy
+# See: https://github.com/ansible/galaxy/issues/46
+
+name: Release-gh
+
+'on':
+  workflow_dispatch:
+
+defaults:
+  run:
+    working-directory: 'bulch.rsync_server'
+
+jobs:
+
+  release-git:
+    name: Release github
+    runs-on: ubuntu-24.04
+    needs: release-ansible-galaxy
+    steps:
+      - name: 🚀 Create Release version
+        uses: release-drafter/release-drafter@master
+        with:
+          publish: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
