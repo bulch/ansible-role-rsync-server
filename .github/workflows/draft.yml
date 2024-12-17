@@ -15,7 +15,7 @@ permissions:
 
 jobs:
   on-failure:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     if: ${{ github.event.workflow_run.conclusion == 'failure' }}
     steps:
       - name: send telegram message on fail build
@@ -28,7 +28,7 @@ jobs:
             See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
 
   on-success:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     permissions:
       pages: write

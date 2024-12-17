@@ -1,0 +1,4 @@
+---
+testrsync_server_path_default_config_rsync: "/etc/default/rsync"
+testrsync_server_path_secret_rsync: "/etc/rsyncd.secrets"
+testrsync_server_path_rsync_config: "/etc/rsyncd.conf"

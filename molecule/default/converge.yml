@@ -39,7 +39,7 @@
   tasks:
     - name: Include bulch.rsync_server
       ansible.legacy.include_role:
-        name: "bulch.rsync_server"
+        name: bulch.rsync_server
 
     - name: Check uname
       ansible.builtin.raw: uname -a
