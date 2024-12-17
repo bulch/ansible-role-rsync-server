@@ -1,10 +1,10 @@
 ---
-- name: Check project.folder
+- name: check_folders | Check project.folder
   ansible.builtin.stat:
     path: "{{ item.configs.path }}"
   register: current_path
 
-- name: Create common project folders
+- name: check_folders | Create common project folders
   ansible.builtin.file:
     path: "{{ item.configs.path }}"
     state: directory
