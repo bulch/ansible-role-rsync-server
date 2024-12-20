@@ -13,26 +13,30 @@ None.
 
 ## Role install
 
-```
+```bash
 ansible-galaxy role install bulch.rsync_server
 ```
 
 ## Role Variables
 
-Default varibles
+Default varibles in file [defaults/main.yml](defaults/main.yml)
 
-```
+```yaml
+---
+# defaults file for rsync_server
 rsync_config_file: "/etc/rsyncd.conf"
 rsync_config_port: 873
 rsync_server_timeout: 300
 rsync_server_max_connections: 2
+rsync_packages:
+  - rsync
 rsync_config_manage: []
 ```
 
 
 ## Example Playbook
 
-```
+```yaml
 ---
 - name: Example Playbook
   hosts: all
@@ -49,14 +53,14 @@ rsync_config_manage: []
     - rsync_server
   vars:
     rsync_config_manage:
-    - name: "example-storage"
-      configs:
-        comment: "Example storage"
-        path: "/var/www/example-storage"
-        hosts_allow: ["*"]
-      secrets:
-        user: "{{ my_secter_rsync_user }}"
-        password: "{{ my_secter_rsync_password }}"
+      - name: "example-storage"
+        configs:
+          comment: "Example storage"
+          path: "/var/www/example-storage"
+          hosts_allow: ["*"]
+        secrets:
+          user: "{{ my_secter_rsync_user }}"
+          password: "{{ my_secter_rsync_password }}"
 ```
 
 Rsync list for test
