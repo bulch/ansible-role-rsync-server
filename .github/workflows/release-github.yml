@@ -18,7 +18,6 @@ jobs:
 
   release-github:
     name: Release github
-    needs: release-drafter
     runs-on: ubuntu-24.04
     steps:
       - name: 🚀 Create Release version
