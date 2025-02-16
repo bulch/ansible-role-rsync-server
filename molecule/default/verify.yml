@@ -1,6 +1,11 @@
 ---
 - name: Fail if molecule group is missing
   hosts: localhost
+  vars:
+    molecule_inventory:
+      all:
+        hosts: {}
+        molecule: {}
   tasks:
     - name: Print some info
       ansible.builtin.debug:

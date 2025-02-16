@@ -10,7 +10,7 @@
 {% for item in rsync_config_manage | default([]) %}
 [{{ item.name }}]
     path = {{ item.configs.path }}
-    comment = {{ item.configs.comment | default("{{ item.name }} - server rsync") }}
+    comment = {{ item.configs.comment | default(item.name + " - server rsync") }}
     auth users = {{ item.secrets.user }}
     uid = {{ item.configs.uid | default('nobody') }}
     gid = {{ item.configs.gid | default('nogroup') }}
