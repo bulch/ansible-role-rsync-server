@@ -9,6 +9,13 @@ name: Release-galaxy
 
 'on':
   workflow_dispatch:
+  workflow_run:
+    workflows:
+      - Release-github
+    types:
+      - completed
+    branches:
+      - master
 
 defaults:
   run:
@@ -18,6 +25,7 @@ jobs:
 
   release-ansible-galaxy:
     name: Release ansible-galaxy
+    needs: release-github
     runs-on: ubuntu-24.04
     steps:
       - name: Check out the codebase.
