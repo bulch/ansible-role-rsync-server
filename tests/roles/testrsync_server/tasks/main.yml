@@ -61,8 +61,8 @@
     that:
       - ansible_facts.services.rsync['state'] == 'running'
 
-- name: Gather facts on listening ports
-  community.general.listen_ports_facts:
+# - name: Gather facts on listening ports
+#   community.general.listen_ports_facts:
 
 - name: Test assert TCP port
   ansible.builtin.assert:
