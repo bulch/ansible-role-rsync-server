@@ -1,3 +1,4 @@
+# ansible-lint: skip: syntax-check[unknown-module]
 ---
 - name: Create
   hosts: localhost

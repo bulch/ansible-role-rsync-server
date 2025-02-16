@@ -1,3 +1,4 @@
+# ansible-lint: skip: syntax-check[unknown-module]
 ---
 - name: Test retrieve information from path
   ansible.builtin.stat:
