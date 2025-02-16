@@ -5,7 +5,7 @@
 - id: ansible-lint
   name: Ansible-lint
   description: This hook runs ansible-lint.
-  entry: python3 -m ansiblelint -v --force-color
+  entry: python3 -m ansiblelint -v --force-color --exclude .ansible
   language: python
   # do not pass files to ansible-lint, see:
   # https://github.com/ansible/ansible-lint/issues/611
