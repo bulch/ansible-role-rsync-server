@@ -33,6 +33,14 @@ jobs:
       - name: Install Ansible.
         run: pip3 install ansible-core
 
+      - name: Install required collections
+        run: |
+          ansible-galaxy collection install community.docker
+          ansible-galaxy collection install community.general
+
+      - name: List installed collections
+        run: ansible-galaxy collection list
+
       - name: Trigger a new import on Galaxy.
         run: >-
           ansible-galaxy role import --api-key ${{ secrets.GALAXY_API_KEY }}
