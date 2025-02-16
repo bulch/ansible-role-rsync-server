@@ -19,7 +19,6 @@ jobs:
   release-git:
     name: Release github
     runs-on: ubuntu-24.04
-    needs: release-ansible-galaxy
     steps:
       - name: 🚀 Create Release version
         uses: release-drafter/release-drafter@master
