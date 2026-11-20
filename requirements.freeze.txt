@@ -50,6 +50,6 @@ selinux==0.3.0
 subprocess-tee==0.4.2
 urllib3==2.7.0
 virtualenv==20.28.0
-wcmatch==10.0
+wcmatch==11.2
 yamllint==1.35.1
 zipp==3.21.0
